@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import BlogPost
 
 
@@ -20,4 +20,15 @@ class IndexView(ListView):
     #モデルBlogPostのオブジェクトにorder_by()を適用して
     #BlogPostのレコードを投稿日時の降順で並べ替える
     queryset = BlogPost.objects.order_by('-posted_at')
+
+class BlogDetail(DetailView):
+    """詳細ページのビューで投稿記事の詳細を表示するのでDetailViewを継承する
+    Attributes:
+    template_name: レンダリングするテンプレート
+    Model: モデルのクラス
+    """
+    #post.htmlをレンダリングする
+    template_name = 'post.html'
+    #クラス変数modelにBlogPostを設定
+    model = BlogPost
     
