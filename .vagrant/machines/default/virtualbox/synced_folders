@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/workspace21":{"guestpath":"/home/vagrant/workspace21","hostpath":"/Users/katuhitohara/django002/ubuntu64_006/workspace21","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/katuhitohara/django002/ubuntu64_006","disabled":false,"__vagrantfile":true}}}
