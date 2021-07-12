@@ -4,7 +4,7 @@ class BlogPost(models.Model):
     """モデルクラス"""
     #カテゴリに設定する項目を入れ子のタプルとして定義
     #最初の要素はモデルが使用する値、2番目の要素は選択メニューに表示する文字列
-    CATEGORY = (('science', '科学のこと'), ('dairylife', '日常のこと'), ('music', '音楽のこと'))
+    CATEGORY = (('science', '科学のこと'), ('dailylife', '日常のこと'), ('music', '音楽のこと'))
 
     #タイトル用のフィールド
     title = models.CharField(

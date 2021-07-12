@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Diary Blog{% endblock %}
+{% block title %}Diary Blog - Dailylife{% endblock %}
 
 {% load static %}
 
@@ -12,7 +12,7 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
                             <h1>Diary Blog</h1>
-                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                            <span class="subheading">Dailylifeのカテゴリの一覧</span>
                         </div>
                     </div>
                 </div>
@@ -25,10 +25,10 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                  <!-- 全レコードが格納されたorderby_recordsからレコードを1件ずつrecordに取り出す -->
-                  {% for record in orderby_records %}
+                  <!-- dailylifeのレコードが格納されたdailylife_recordsからレコードを1件ずつrecordに取り出す -->
+                  {% for record in dailylife_records %}
                   <div class="post-preview">
-                      <!-- urlでURLパターン'blog-detail/記事のid/'を生成し、詳細ページへのリンクを設定 -->
+                      <!-- urlでURLパターン'blog-detail/<int:pk>/'を生成し、詳細ページへのリンクを設定 -->
                       <a href="{% url 'diary:blog_detail' record.pk %}">
                           <!-- 記事のタイトル -->
                           <h2 class="post-title">

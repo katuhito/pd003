@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=200, verbose_name='タイトル')),
                 ('content', models.TextField(verbose_name='本文')),
                 ('posted_at', models.DateTimeField(auto_now_add=True, verbose_name='投稿日時')),
-                ('category', models.CharField(choices=[('science', '科学のこと'), ('dairylife', '日常のこと'), ('music', '音楽のこと')], max_length=50, verbose_name='カテゴリ')),
+                ('category', models.CharField(choices=[('science', '科学のこと'), ('dailylife', '日常のこと'), ('music', '音楽のこと')], max_length=50, verbose_name='カテゴリ')),
             ],
         ),
     ]
