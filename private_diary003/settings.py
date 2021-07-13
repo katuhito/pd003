@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+#constantsをインポート
+from django.contrib.messages import constants
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -119,3 +121,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#レベル定数を指定するための環境変数MESSAGE_TAGS
+MESSAGE_TAGS = {
+    constants.SUCCESS: 'alert alert-success',
+}
+
+#フォーム送信のデータをターミナルに出力
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+#Email
+DEFAULT_FROM_EMAIL = 'katuhitoh9@gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'katuhitoh9@gmail.com'
+EMAIL_HOST_PASSWORD = 'assh ybqk nvpi xuot'
+EMAIL_USE_TLS = True
+

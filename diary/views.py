@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.views import generic
 from django.views.generic import ListView, DetailView
 from .models import BlogPost
+from django.views.generic import FormView
+from django.urls import reverse_lazy
+from .forms import ContactForm
+from django.contrib import messages
 
 
 class IndexView(ListView):
@@ -66,6 +70,31 @@ class MusicView(ListView):
     queryset = BlogPost.objects.filter(category='music').order_by('-posted_at')
     # 1ページに表示するレコードの件数
     pagenate_by = 2
+
+
+class ContactView(FormView):
+    template_name = 'contact.html'
+    form_class = ContactForm
+    success_url = reverse_lazy('diary:contact')
+
+    def form_valid(self, form):
+        """FormViewクラスのform_valid()をオーバーライドする。
+        フォームのバリデーションを通過したデータがPOSTされたときに呼ばれるメール送信を行う
+
+        parameters:
+            form(django.forms.Form):
+                form_classに格納されているフォームのオブジェクト
+        Return:
+            HttpResponseRedirectのオブジェクト
+            オブジェクトをインスタンス化するとsuccess_urlで設定されているURLにリダイレクトされる
+        """
+        # forms.pyのsend_email()を実行してメール送信を行う
+        form.send_email()
+        #送信完了後に表示するメッセージ
+        messages.success(self.request, 'お問い合わせは正常に送信されました。')
+        #戻り値はスーパークラスのform_valid()の戻り値(HttpResponseRedirect)
+        return super().form_valid(form)
+
 
 
 
